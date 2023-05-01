@@ -18,8 +18,8 @@ function App() {
     useEffect(
         () => {
             axios({
-                url: '/table/changeY/1',
-                method: 'POST'
+                url: '/table/1/status',
+                method: 'GET'
             }).then((res) => {
                 callback(res.data);
             })
@@ -29,9 +29,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-
                 {testStr}
-                {test2Str}
             </header>
         </div>
     );
