@@ -7,7 +7,7 @@ import object2 from "../src/images/table1.glb";
 import object3 from "../src/images/table2.glb";
 import tableState1 from "../src/images/available.glb";
 import tableState2 from "../src/images/inuse.glb";
-import human1 from "../src/images/human.glb";
+import human1 from "../src/images/replacementH.glb";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const State1 = () => {
@@ -49,6 +49,12 @@ const State1 = () => {
           position={[-4, 4.5, 3]}
           children-0-castShadow
         />
+          <primitive
+              object={human.scene}
+              scale={1}
+              position={[-4, 6, -1]}
+              children-0-castShadow
+          />
 
         {/* <primitive
           object={human.scene}
