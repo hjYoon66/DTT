@@ -7,7 +7,7 @@ import object2 from "../src/images/table1.glb";
 import object3 from "../src/images/table2.glb";
 import tableState1 from "../src/images/available.glb";
 import tableState2 from "../src/images/inuse.glb";
-import human1 from "../src/images/replacementH.glb";
+import human1 from "../src/images/human.glb";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const State1 = () => {
@@ -49,19 +49,13 @@ const State1 = () => {
           position={[-4, 4.5, 3]}
           children-0-castShadow
         />
-          <primitive
-              object={human.scene}
-              scale={1}
-              position={[-4, 6, -1]}
-              children-0-castShadow
-          />
 
-        {/* <primitive
+         {/*<primitive
           object={human.scene}
           scale={1}
           position={[-4, 4.5, 3]}
           children-0-castShadow
-        /> */}
+        />*/}
       </>
     );
   }
@@ -75,8 +69,23 @@ const App = () => {
   const reservationPage = () => {
     movePage("/Reservation");
   };
+    const socket = new WebSocket('ws://localhost:8080/websocket');
 
-  return (
+    socket.onopen = () => {
+        // 연결이 성공적으로 이루어졌을 때 처리할 작업
+    };
+
+    socket.onmessage = (event) => {
+        const message = event.data;
+        // 서버에서 보낸 메시지 처리
+    };
+
+    socket.onclose = () => {
+        // 연결이 종료되었을 때 처리할 작업
+    };
+
+
+    return (
     <Canvas
       style={{
         width: "800px",
